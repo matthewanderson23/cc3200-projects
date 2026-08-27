@@ -148,7 +148,7 @@ int main(void)
     // set the GPIO direction to output
     HWREG(GPIO_PORT_A1_ADDR_BASE + GPIO_DIR_O_REG) |= LED_RED_PIN;
 
-    // while forever loop that turns on and off each LED separated by 500ms
+    // while forever loop that turns on and off the red LED
     while (1) {
         // turn on red LED
         GPIOPinWrite(GPIO_PORT_A1_ADDR_BASE, LED_RED_PIN, LED_RED_PIN);
