@@ -88,3 +88,38 @@ There is no CI. Changes to project metadata are verified by importing into a CCS
 workspace and running Project → Build Project, which requires the IDE and, for a
 flash/debug run, the physical LaunchXL. Say what was and was not verified rather than
 assuming a metadata edit builds.
+
+## Project README template
+
+Every project folder gets a `README.md` following this skeleton. Keep the headings
+identical across projects so the repo reads as one body of work; sections that do not
+apply shrink to a line or two rather than being dropped.
+
+```markdown
+# 01 — Register-Level LED Blink
+
+One line: what it does, on what hardware.
+
+## Objective
+What you were proving. Straight from your matrix:
+"control hardware without driverlib abstraction."
+
+## Hardware
+Board, MCU, which pin/peripheral, any jumper or wiring setup.
+
+## Build and run
+Toolchain and version, how to build, how to flash or debug.
+Anything non-obvious about the target configuration.
+
+## How it works
+The narrative. Initialisation sequence and *why that order*.
+
+## Register reference
+The bit-level detail. One table per register.
+
+## Gotchas
+What cost you time and why.
+
+## References
+Document numbers and section numbers.
+```
