@@ -1,0 +1,23 @@
+# ---- CCS workspace state (machine-specific; never belongs in the repo) ----
+.metadata/
+RemoteSystemsTempFiles/
+.jxbrowser.userdata/
+AnalysisSolutionsTemp/
+
+# ---- Per-user debug configs (CCS regenerates on first Run > Debug) ----
+.launches/
+
+# ---- Build output (CCS regenerates all of this) ----
+Debug/
+Release/
+*.o
+*.obj
+*.d
+*.out
+*.map
+*.lst
+*.hex
+*.bin
+
+# ---- macOS ----
+.DS_Store
