@@ -75,6 +75,20 @@ Which setting keeps a project here depends on how it starts:
    inside the current workspace)
 4. *Location*: `~/dev/cc3200-projects/<name>`
 
+**Target configuration** — only if the project has no `targetConfigs/`, i.e. step 2
+was left blank. *File → New → Target Configuration File*:
+
+1. *File name*: `CC3200_LaunchXL.ccxml`
+2. **Uncheck** *Use shared location* (checked, it writes to
+   `~/ti/CCSTargetConfigurations/`, outside the repo)
+3. *Location*: `/<name>`
+4. *Finish*, then in the editor: *Connection* `Stellaris In-Circuit Debug Interface`,
+   *Board or Device* `CC3200` — **save** (⌘S; the editor does not autosave)
+5. Right-click the project → *New → Folder* → `targetConfigs`, drag the `.ccxml` in
+
+Equivalent shortcut: copy another project's `targetConfigs/*.ccxml` — the file holds
+no absolute paths and every project here targets the same board.
+
 **Importing an existing project** — *File → Import → Code Composer Studio → CCS Projects*, then
 **uncheck "Copy projects into workspace"**. Unchecked, CCS stores a pointer and edits
 the files in place. Checked, it duplicates everything into the workspace and commits

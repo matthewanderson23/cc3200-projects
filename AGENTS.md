@@ -44,6 +44,16 @@ paths break that, so:
   link to a shared one under `~/ti/CCSTargetConfigurations/` — a linked resource with
   an absolute `<location>` will not resolve on another machine.
 
+  The New CCS Project wizard generates one when *Connection* is set; left blank, it
+  does not. To add it afterwards, either copy another project's `.ccxml` (they hold
+  no absolute paths and every project targets the same board), or:
+
+  1. *File → New → Target Configuration File*, name it `CC3200_LaunchXL.ccxml`
+  2. **Uncheck** *Use shared location*; *Location* `/<project>`
+  3. In the editor: *Connection* `Stellaris In-Circuit Debug Interface`, *Board or
+     Device* `CC3200` — save (the editor does not autosave)
+  4. Move it into `targetConfigs/`
+
 Before committing, verify no absolute paths crept into project metadata:
 
 ```sh
