@@ -66,9 +66,14 @@ not under version control.** Worth a glance at the workspace folder now and then
 
 Which setting keeps a project here depends on how it starts:
 
-**New project from scratch** — *File → New → CCS Project*. **Uncheck "Use default
-location"** and set *Location* to `~/dev/cc3200-projects/<name>`. That box is checked
-by default, and "default location" means inside the current workspace.
+**New project from scratch** — *File → New → CCS Project*:
+
+1. *Target*: `CC3200`
+2. *Connection*: `Stellaris In-Circuit Debug Interface` — generates
+   `targetConfigs/CC3200.ccxml`; left blank, no `.ccxml` is created
+3. **Uncheck** *Use default location* (checked by default — "default location" means
+   inside the current workspace)
+4. *Location*: `~/dev/cc3200-projects/<name>`
 
 **Importing an existing project** — *File → Import → Code Composer Studio → CCS Projects*, then
 **uncheck "Copy projects into workspace"**. Unchecked, CCS stores a pointer and edits
@@ -84,7 +89,15 @@ Two more conventions that keep projects portable:
 
 - Give each project its own `targetConfigs/*.ccxml` rather than linking an external
   one, so nothing points outside the repo.
-- Reference SDK files via `CC3200_SDK_ROOT`, never an absolute path.
+- Reference SDK files via `CC3200_SDK_ROOT`, never an absolute path. To set it:
+  1. *Project → Properties → Resource → Linked Resources → Path Variables → New…*
+     (per project — **not** *Preferences → General → Workspace → Linked Resources*,
+     which is not committed)
+  2. Name: `CC3200_SDK_ROOT`
+  3. Location — type it, do **not** *Browse* (Browse writes an absolute path):
+     `${TI_PRODUCTS_DIR__TIREX}/CC3200SDK_1.5.0/cc3200-sdk`
+  4. Add to the include path at *Project → Properties → Build → ARM Compiler →
+     Include Options*: `${CC3200_SDK_ROOT}/inc`
 
 ## What is not here
 
